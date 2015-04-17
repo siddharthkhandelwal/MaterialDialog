@@ -165,6 +165,13 @@ public class MaterialDialog {
         return this;
     }
 
+    public Button getPositiveButton() {
+        return mPositiveButton;
+    }
+
+    public Button getNegativeButton() {
+        return mNegativeButton;
+    }
 
     public MaterialDialog setPositiveButton(String text, final View.OnClickListener listener) {
         mPositiveButton = new Button(mContext);
@@ -269,7 +276,6 @@ public class MaterialDialog {
             mAlertDialogWindow.setContentView(contv);
             // mAlertDialogWindow.setContentView(R.layout.layout_materialdialog);
 
-//7
             WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                     WindowManager.LayoutParams.WRAP_CONTENT,
                     WindowManager.LayoutParams.WRAP_CONTENT,
@@ -479,7 +485,6 @@ public class MaterialDialog {
             mAlertDialog.setCanceledOnTouchOutside(canceledOnTouchOutside);
         }
     }
-<<<<<<< HEAD
 
     /**
      * 动态测量listview-Item的高度
@@ -505,6 +510,3 @@ public class MaterialDialog {
     }
 
 }
-=======
-}
->>>>>>> origin/master
