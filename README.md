@@ -22,7 +22,9 @@ Example:
 
 ```groovy
 dependencies {
-    compile 'me.drakeet.materialdialog:library:1.2.2'
+    compile 'me.drakeet.materialdialog:library:1.2.8'
+    // I have upload v1.2.8 on 2015-11-22, if it doesn't take effect or your 
+    // gradle cannot find it in maven central, you may try v1.2.2.
 }
 ```
 
@@ -81,32 +83,33 @@ And, you can call `setBackgroundResource(int resId)` or `setBackground(Drawable 
 ```java
 mMaterialDialog.setBackgroundResource(R.drawable.background);
 ```
+## 1.2.8
+* Fix the problem of soft keyboard repeat display
+* Fix the action buttons became dismiss when scroll view height is too long.
+* Add get buttons so that you can custom them.
+* Update the versions of gradle and some build tools.
 
 ## 1.2.1
-Now, It has been able to run perfectly on L.
-Fix the button style on L.
-Fix the problem, so that it can correctly use `AutoCompleteTextView` & `EditText`.
+* Now, It has been able to run perfectly on L.
+* Fix the button style on L.
+* Fix the problem, so that it can correctly use `AutoCompleteTextView` & `EditText`.
 
 ## 1.1.0
-fix the keyboard/input bug when more show. 
+* Fix the keyboard/input bug when more show. 
 
 ## 1.0.9
-If title is null, no show it, but I think it is ugly without title...;
-Add set Button's text by string resId, e.g. `setPositiveButton(android.R.string.yes, new View.OnClickListener() `
+* If title is null, no show it, but I think it is ugly without title...;
+* Add set Button's text by string resId, e.g. `setPositiveButton(android.R.string.yes, new View.OnClickListener() `
 
 ## 1.0.8
-Add every method return `this`
+* Add every method return `this`
 
 ## 1.0.7
-Fix the BUG of `Can not show soft keyboard automatically when focus is on an EditText.`
-
-Add `setCanceledOnTouchOutside()` // You should set it before `show()`, otherwise, it can't take effect.
-
-Add `setContentView()`
-
-Add Button press style;
-
-...
+* Fix the BUG of `Can not show soft keyboard automatically when focus is on an EditText.`
+* Add `setCanceledOnTouchOutside()` // You should set it before `show()`, otherwise, it can't take effect.
+* Add `setContentView()`
+* Add Button press style;
+* ...
 
 I recently was too busy, if you have any Suggestions for the library, I encourage you to read the source code, and try to achieve your requirements, and then I'll merger it. We create good world together.
 
