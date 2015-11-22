@@ -257,7 +257,7 @@ public class MaterialDialog {
             mAlertDialog.show();
 
             mAlertDialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
-            mAlertDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+            mAlertDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_MASK_STATE);
 
             mAlertDialogWindow = mAlertDialog.getWindow();
             View contv = LayoutInflater.from(mContext).inflate(R.layout.layout_materialdialog, null);
@@ -479,7 +479,6 @@ public class MaterialDialog {
             mAlertDialog.setCanceledOnTouchOutside(canceledOnTouchOutside);
         }
     }
-<<<<<<< HEAD
 
     /**
      * 动态测量listview-Item的高度
@@ -505,6 +504,3 @@ public class MaterialDialog {
     }
 
 }
-=======
-}
->>>>>>> origin/master
