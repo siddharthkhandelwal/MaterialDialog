@@ -41,23 +41,22 @@ public class MyActivity extends ActionBarActivity {
         if (mMaterialDialog != null) {
             mMaterialDialog.setTitle("MaterialDialog").setMessage(
                     "Hi! This is a MaterialDialog. It's very easy to use, you just new and show() it " +
-                            "then the beautiful AlertDialog will show automatedly. It is artistic, conforms to Google Material Design." +
+                            "then the beautiful AlertDialog will show automatically. It is artistic, conforms to Google Material Design." +
                             " I hope that you will like it, and enjoy it. ^ ^")
                     //mMaterialDialog.setBackgroundResource(R.drawable.background);
                     .setPositiveButton("OK", new View.OnClickListener() {
-                                @Override public void onClick(View v) {
-                                    mMaterialDialog.dismiss();
-                                    Toast.makeText(MyActivity.this, "Ok",
-                                            Toast.LENGTH_LONG).show();
-                                }
-                            })
-                    .setNegativeButton("CANCLE", new View.OnClickListener() {
-                                @Override public void onClick(View v) {
-                                    mMaterialDialog.dismiss();
-                                    Toast.makeText(MyActivity.this, "Cancle",
-                                            Toast.LENGTH_LONG).show();
-                                }
-                            }).setCanceledOnTouchOutside(false)
+                        @Override public void onClick(View v) {
+                            mMaterialDialog.dismiss();
+                            Toast.makeText(MyActivity.this, "Ok",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }).setNegativeButton("CANCEL", new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    mMaterialDialog.dismiss();
+                    Toast.makeText(MyActivity.this, "Cancel", Toast.LENGTH_LONG)
+                         .show();
+                }
+            }).setCanceledOnTouchOutside(false)
                     // You can change the message anytime.
                     // mMaterialDialog.setTitle("提示");
                     .setOnDismissListener(
@@ -148,10 +147,10 @@ public class MyActivity extends ActionBarActivity {
                         "MaterialDialog").setContentView(listView);
 
                 alert.setPositiveButton("OK", new View.OnClickListener() {
-                            @Override public void onClick(View v) {
-                                alert.dismiss();
-                            }
-                        });
+                    @Override public void onClick(View v) {
+                        alert.dismiss();
+                    }
+                });
 
                 alert.show();
                 break;
