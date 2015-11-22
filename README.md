@@ -1,6 +1,7 @@
 # Material Dialog v1.2.2
 
-This is an Android library, I call it MaterialDialog. It's very easy to use. Just `new` it & call `show()` method, then the beautiful AlertDialog will show automatedly. It is artistic, conforms to Google Material Design. I hope that you will like it, and enjoys it. ^ ^
+This is an Android library, I call it MaterialDialog. It's very easy to use. 
+Just `new` it & call `show()` method, then the beautiful AlertDialog will show automatically. It is artistic, conforms to Google Material Design. I hope that you will like it, and enjoys it. ^ ^
 
 ## Screenshots
 
@@ -67,7 +68,7 @@ mMaterialDialog.show();
 // You can change the message anytime. after show
 mMaterialDialog.setMessage("你好，世界~");
 ```
-With the first initial and `mMaterialDialog.show()`, it will show automatedly.
+With the first initial and `mMaterialDialog.show()`, it will show automatically.
 
 In addition, you can call `setView (View v) ` & `setContentView()` to set a View what you like or
 custom after the instantiation. This replaces the title and message.
