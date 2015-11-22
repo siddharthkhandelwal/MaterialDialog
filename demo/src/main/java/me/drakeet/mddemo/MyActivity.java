@@ -6,14 +6,13 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -121,32 +120,10 @@ public class MyActivity extends ActionBarActivity {
                         this,
                         android.R.layout.simple_list_item_1
                 );
-                arrayAdapter.add("This is item 0");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
-                arrayAdapter.add("This is item 1");
+                for (int j = 0; j < 38; j++) {
+                    arrayAdapter.add("This is item " + j);
+                }
+
                 ListView listView = new ListView(this);
                 listView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                 float scale = getResources().getDisplayMetrics().density;
@@ -173,7 +150,13 @@ public class MyActivity extends ActionBarActivity {
             }
             case R.id.button_set_notitile: {
                 final MaterialDialog materialDialog = new MaterialDialog(this);
-                materialDialog.setMessage("This is a dialog without title. This is a dialog without title. This is a dialog without title. This is a dialog without title. This is a dialog without title. ")
+                //materialDialog.setMessage("This is a dialog without title. This is a dialog without title. This is a dialog without title. This is a dialog without title. This is a dialog without title. ")
+                materialDialog.setMessage("This is a dialog without title. This is a dialog without title. This is a dialog without title. " +
+                                "This is a dialog without title. This is a dialog without title." +
+                                "This is a dialog without title. This is a dialog without title." +
+                                "This is a dialog without title. This is a dialog without title." +"This is a dialog without title. This is a dialog without title." +"This is a dialog without title. This is a dialog without title." +"This is a dialog without title. This is a dialog without title." +"This is a dialog without title. This is a dialog without title." +
+                                "This is a dialog without title. This is a dialog without title." +"This is a dialog without title. This is a dialog without title." +"This is a dialog without title. This is a dialog without title." +"This is a dialog without title. This is a dialog without title." +"This is a dialog without title. This is a dialog without title." +"This is a dialog without title. This is a dialog without title." +"This is a dialog without title. This is a dialog without title." +"This is a dialog without title. This is a dialog without title." +"This is a dialog without title. This is a dialog without title." +"This is a dialog without title. This is a dialog without title." +"This is a dialog without title. This is a dialog without title." +
+                                " ")
                         .setPositiveButton(android.R.string.yes, new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
