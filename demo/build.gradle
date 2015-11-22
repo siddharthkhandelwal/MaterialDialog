@@ -8,8 +8,8 @@ android {
         applicationId "me.drakeet.mddemo"
         minSdkVersion 9
         targetSdkVersion 22
-        versionCode 4
-        versionName "1.0.8"
+        versionCode 16
+        versionName "1.2.8"
     }
     buildTypes {
         release {
