@@ -248,7 +248,7 @@ public class MaterialDialog {
                     mNegativeButton.setBackgroundResource(android.R.color.transparent);
                 }
             }
-            if (!isNullorEmpty(pText)) {
+            if (!isNullOrEmpty(pText)) {
                 mPositiveButton.setVisibility(View.VISIBLE);
                 mPositiveButton.setText(pText);
                 mPositiveButton.setOnClickListener(pListener);
@@ -257,7 +257,7 @@ public class MaterialDialog {
                 }
             }
 
-            if (!isNullorEmpty(nText)) {
+            if (!isNullOrEmpty(nText)) {
                 mNegativeButton.setVisibility(View.VISIBLE);
                 mNegativeButton.setText(nText);
                 mNegativeButton.setOnClickListener(nListener);
@@ -265,10 +265,10 @@ public class MaterialDialog {
                     mNegativeButton.setBackgroundResource(android.R.color.transparent);
                 }
             }
-            if (isNullorEmpty(pText) && pId == -1) {
+            if (isNullOrEmpty(pText) && pId == -1) {
                 mPositiveButton.setVisibility(View.GONE);
             }
-            if (isNullorEmpty(nText) && nId == -1) {
+            if (isNullOrEmpty(nText) && nId == -1) {
                 mNegativeButton.setVisibility(View.GONE);
             }
             if (mBackgroundResId != -1) {
@@ -436,7 +436,7 @@ public class MaterialDialog {
         }
     }
 
-    private boolean isNullorEmpty(String nText) {
+    private boolean isNullOrEmpty(String nText) {
         return nText == null || nText.isEmpty();
     }
 

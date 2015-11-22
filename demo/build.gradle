@@ -20,8 +20,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(":library")
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':library')
     //compile 'me.drakeet.materialdialog:library:1.0.8'
     compile 'com.android.support:appcompat-v7:22.+'
 }
