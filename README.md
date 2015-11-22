@@ -23,7 +23,7 @@ Example:
 ```groovy
 dependencies {
     compile 'me.drakeet.materialdialog:library:1.2.8'
-    // I have upload v1.2.8 on 2015-11-22, if it doesn't take effect or your 
+    // I have uploaded v1.2.8 on 2015-11-22, if it doesn't take effect or your 
     // gradle cannot find it in maven central, you may try v1.2.2.
 }
 ```
