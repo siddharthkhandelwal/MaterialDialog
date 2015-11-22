@@ -8,8 +8,8 @@ android {
         //applicationId "me.drakeet.materialdialog"
         minSdkVersion 9
         targetSdkVersion 22
-        versionCode 9
-        versionName "1.2.3"
+        versionCode 16
+        versionName "1.2.8"
     }
     buildTypes {
         release {
