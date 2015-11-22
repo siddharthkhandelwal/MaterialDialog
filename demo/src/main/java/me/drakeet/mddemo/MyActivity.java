@@ -84,18 +84,10 @@ public class MyActivity extends ActionBarActivity {
         switch (v.getId()) {
             case R.id.button_set_view: {
                 mMaterialDialog = new MaterialDialog(this);
-                if (mMaterialDialog != null) {
-                    View view = LayoutInflater.from(this)
-                                              .inflate(
-                                                      R.layout.progressbar_item,
-                                                      null);
-                    mMaterialDialog.setView(view).show();
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),
-                            "You should init firstly!", Toast.LENGTH_SHORT)
-                         .show();
-                }
+                View view = LayoutInflater.from(this)
+                                          .inflate(R.layout.progressbar_item,
+                                                  null);
+                mMaterialDialog.setView(view).show();
             }
             break;
             case R.id.button_set_background: {
@@ -152,6 +144,20 @@ public class MyActivity extends ActionBarActivity {
                     }
                 });
 
+                alert.show();
+                break;
+            }
+            case R.id.button_set_contentViewById: {
+                final MaterialDialog alert = new MaterialDialog(this).setTitle(
+                        "MaterialDialog")
+                                                                     .setContentView(
+                                                                             R.layout.custom_message_content);
+
+                alert.setPositiveButton("OK", new View.OnClickListener() {
+                            @Override public void onClick(View v) {
+                                alert.dismiss();
+                            }
+                        });
                 alert.show();
                 break;
             }

@@ -43,9 +43,10 @@ public class MaterialDialog {
     private LinearLayout.LayoutParams mLayoutParams;
     private Button mNegativeButton;
     private boolean mHasShow = false;
-    private Drawable mBackgroundDrawable;
     private int mBackgroundResId = -1;
+    private Drawable mBackgroundDrawable;
     private View mMessageContentView;
+    private int mMessageContentViewResId;
     private DialogInterface.OnDismissListener mOnDismissListener;
     private int pId = -1, nId = -1;
     private String pText, nText;
@@ -79,8 +80,24 @@ public class MaterialDialog {
 
     public MaterialDialog setContentView(View view) {
         mMessageContentView = view;
+        mMessageContentViewResId = 0;
         if (mBuilder != null) {
             mBuilder.setContentView(mMessageContentView);
+        }
+        return this;
+    }
+
+
+    /**
+     * Set a custom view resource to be the contents of the dialog.
+     *
+     * @param layoutResId resource ID to be inflated
+     */
+    public MaterialDialog setContentView(int layoutResId) {
+        mMessageContentViewResId = layoutResId;
+        mMessageContentView = null;
+        if (mBuilder != null) {
+            mBuilder.setContentView(layoutResId);
         }
         return this;
     }
@@ -212,6 +229,7 @@ public class MaterialDialog {
     private class Builder {
 
         private TextView mTitleView;
+        private ViewGroup mMessageContentRoot;
         private TextView mMessageView;
         private Window mAlertDialogWindow;
         private LinearLayout mButtonLayout;
@@ -249,6 +267,8 @@ public class MaterialDialog {
                     R.id.buttonLayout);
             mPositiveButton = (Button) mButtonLayout.findViewById(R.id.btn_p);
             mNegativeButton = (Button) mButtonLayout.findViewById(R.id.btn_n);
+            mMessageContentRoot = (ViewGroup) mAlertDialogWindow.findViewById(
+                    R.id.message_content_root);
             if (mView != null) {
                 LinearLayout linearLayout
                         = (LinearLayout) mAlertDialogWindow.findViewById(
@@ -330,6 +350,9 @@ public class MaterialDialog {
             if (mMessageContentView != null) {
                 this.setContentView(mMessageContentView);
             }
+            else if (mMessageContentViewResId != 0) {
+                this.setContentView(mMessageContentViewResId);
+            }
             mAlertDialog.setCanceledOnTouchOutside(mCancel);
             if (mOnDismissListener != null) {
                 mAlertDialog.setOnDismissListener(mOnDismissListener);
@@ -348,12 +371,16 @@ public class MaterialDialog {
 
 
         public void setMessage(int resId) {
-            mMessageView.setText(resId);
+            if (mMessageView != null) {
+                mMessageView.setText(resId);
+            }
         }
 
 
         public void setMessage(CharSequence message) {
-            mMessageView.setText(message);
+            if (mMessageView != null) {
+                mMessageView.setText(message);
+            }
         }
 
 
@@ -487,6 +514,21 @@ public class MaterialDialog {
                     autoCompleteTextView.setFocusableInTouchMode(true);
                 }
             }
+        }
+
+
+        /**
+         * Set a custom view resource to be the contents of the dialog. The
+         * resource will be inflated into a ScrollView.
+         *
+         * @param layoutResId resource ID to be inflated
+         */
+        public void setContentView(int layoutResId) {
+            mMessageContentRoot.removeAllViews();
+            // Not setting this to the other content view because user has defined their own
+            // layout params, and we don't want to overwrite those.
+            LayoutInflater.from(mMessageContentRoot.getContext())
+                          .inflate(layoutResId, mMessageContentRoot);
         }
 
 
