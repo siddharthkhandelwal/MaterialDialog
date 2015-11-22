@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         //applicationId "me.drakeet.materialdialog"
-        minSdkVersion 8
+        minSdkVersion 9
         targetSdkVersion 22
         versionCode 9
         versionName "1.2.3"
