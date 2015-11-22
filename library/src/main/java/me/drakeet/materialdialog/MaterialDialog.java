@@ -163,6 +163,16 @@ public class MaterialDialog {
     }
 
 
+    public Button getPositiveButton() {
+        return mPositiveButton;
+    }
+
+
+    public Button getNegativeButton() {
+        return mNegativeButton;
+    }
+
+
     public MaterialDialog setPositiveButton(String text, final View.OnClickListener listener) {
         this.pText = text;
         this.pListener = listener;
@@ -508,7 +518,7 @@ public class MaterialDialog {
 
 
     /**
-     * 动态测量listview-Item的高度
+     * 动态测量list view item的高度
      */
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
@@ -530,3 +540,4 @@ public class MaterialDialog {
         listView.setLayoutParams(params);
     }
 }
+
