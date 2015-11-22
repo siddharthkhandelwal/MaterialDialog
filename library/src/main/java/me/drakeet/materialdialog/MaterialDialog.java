@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
-import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.Gravity;
