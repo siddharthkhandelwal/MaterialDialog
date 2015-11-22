@@ -117,7 +117,7 @@ I recently was too busy, if you have any Suggestions for the library, I encourag
 
 ## DEMO
 
-[demo apk](/demo-release.apk)
+[demo apk](/demo-debug.apk)
 
 ## About me
 
