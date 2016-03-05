@@ -353,6 +353,7 @@ public class MaterialDialog {
                 this.setContentView(mMessageContentViewResId);
             }
             mAlertDialog.setCanceledOnTouchOutside(mCancel);
+            mAlertDialog.setCancelable(mCancel);
             if (mOnDismissListener != null) {
                 mAlertDialog.setOnDismissListener(mOnDismissListener);
             }
@@ -549,6 +550,7 @@ public class MaterialDialog {
 
         public void setCanceledOnTouchOutside(boolean canceledOnTouchOutside) {
             mAlertDialog.setCanceledOnTouchOutside(canceledOnTouchOutside);
+            mAlertDialog.setCancelable(canceledOnTouchOutside);
         }
     }
 
