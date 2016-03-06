@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import me.drakeet.materialdialog.MaterialDialog;
 
-public class MyActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity {
 
     MaterialDialog mMaterialDialog;
 
@@ -39,38 +39,44 @@ public class MyActivity extends ActionBarActivity {
 
     public void show(View v) {
         if (mMaterialDialog != null) {
-            mMaterialDialog.setTitle("MaterialDialog").setMessage(
-                    "Hi! This is a MaterialDialog. It's very easy to use, you just new and show() it " +
-                            "then the beautiful AlertDialog will show automatically. It is artistic, conforms to Google Material Design." +
-                            " I hope that you will like it, and enjoy it. ^ ^")
-                    //mMaterialDialog.setBackgroundResource(R.drawable.background);
-                    .setPositiveButton("OK", new View.OnClickListener() {
-                        @Override public void onClick(View v) {
-                            mMaterialDialog.dismiss();
-                            Toast.makeText(MyActivity.this, "Ok",
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    }).setNegativeButton("CANCEL", new View.OnClickListener() {
-                @Override public void onClick(View v) {
-                    mMaterialDialog.dismiss();
-                    Toast.makeText(MyActivity.this, "Cancel", Toast.LENGTH_LONG)
-                         .show();
-                }
-            }).setCanceledOnTouchOutside(false)
-                    // You can change the message anytime.
-                    // mMaterialDialog.setTitle("提示");
-                    .setOnDismissListener(
-                            new DialogInterface.OnDismissListener() {
-                                @Override
-                                public void onDismiss(DialogInterface dialog) {
-                                    Toast.makeText(MyActivity.this, "onDismiss",
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            }).show();
+            mMaterialDialog.setTitle("MaterialDialog")
+                           .setMessage(
+                                   "Hi! This is a MaterialDialog. It's very easy to use, you just new and show() it " +
+                                           "then the beautiful AlertDialog will show automatically. It is artistic, conforms to Google Material Design." +
+                                           " I hope that you will like it, and enjoy it. ^ ^")
+                           //mMaterialDialog.setBackgroundResource(R.drawable.background);
+                           .setPositiveButton("OK", new View.OnClickListener() {
+                               @Override public void onClick(View v) {
+                                   mMaterialDialog.dismiss();
+                                   Toast.makeText(MainActivity.this, "Ok",
+                                           Toast.LENGTH_LONG).show();
+                               }
+                           })
+                           .setNegativeButton("CANCEL",
+                                   new View.OnClickListener() {
+                                       @Override public void onClick(View v) {
+                                           mMaterialDialog.dismiss();
+                                           Toast.makeText(MainActivity.this,
+                                                   "Cancel", Toast.LENGTH_LONG)
+                                                .show();
+                                       }
+                                   })
+                           .setCanceledOnTouchOutside(true)
+                           // You can change the message anytime.
+                           // mMaterialDialog.setTitle("提示");
+                           .setOnDismissListener(
+                                   new DialogInterface.OnDismissListener() {
+                                       @Override
+                                       public void onDismiss(DialogInterface dialog) {
+                                           Toast.makeText(MainActivity.this,
+                                                   "onDismiss",
+                                                   Toast.LENGTH_SHORT).show();
+                                       }
+                                   })
+                           .show();
             // You can change the message anytime.
             // mMaterialDialog.setMessage("嗨！这是一个 MaterialDialog. 它非常方便使用，你只需将它实例化，这个美观的对话框便会自动地显示出来。它简洁小巧，完全遵照 Google 2014 年发布的 Material Design 风格，希望你能喜欢它！^ ^");
-        }
-        else {
+        } else {
             Toast.makeText(getApplicationContext(), "You should init firstly!",
                     Toast.LENGTH_SHORT).show();
         }
@@ -87,6 +93,7 @@ public class MyActivity extends ActionBarActivity {
                 View view = LayoutInflater.from(this)
                                           .inflate(R.layout.progressbar_item,
                                                   null);
+                mMaterialDialog.setCanceledOnTouchOutside(true);
                 mMaterialDialog.setView(view).show();
             }
             break;
@@ -96,8 +103,7 @@ public class MyActivity extends ActionBarActivity {
                     if (i % 2 != 0) {
                         mMaterialDialog.setBackgroundResource(
                                 R.drawable.background);
-                    }
-                    else {
+                    } else {
                         Resources res = getResources();
                         Bitmap bmp = BitmapFactory.decodeResource(res,
                                 R.drawable.background2);
@@ -109,8 +115,7 @@ public class MyActivity extends ActionBarActivity {
                     i++;
                     Toast.makeText(getApplicationContext(),
                             "Try to click again~", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     Toast.makeText(getApplicationContext(),
                             "You should init firstly!", Toast.LENGTH_SHORT)
                          .show();
@@ -154,10 +159,10 @@ public class MyActivity extends ActionBarActivity {
                                                                              R.layout.custom_message_content);
 
                 alert.setPositiveButton("OK", new View.OnClickListener() {
-                            @Override public void onClick(View v) {
-                                alert.dismiss();
-                            }
-                        });
+                    @Override public void onClick(View v) {
+                        alert.dismiss();
+                    }
+                });
                 alert.show();
                 break;
             }

@@ -60,8 +60,7 @@ public class MaterialDialog {
     public void show() {
         if (!mHasShow) {
             mBuilder = new Builder();
-        }
-        else {
+        } else {
             mAlertDialog.show();
         }
         mHasShow = true;
@@ -210,6 +209,15 @@ public class MaterialDialog {
     }
 
 
+    /**
+     * Sets whether this dialog is canceled when touched outside the window's
+     * bounds OR pressed the back key. If setting to true, the dialog is
+     * set to be cancelable if not
+     * already set.
+     *
+     * @param cancel Whether the dialog should be canceled when touched outside
+     * the window OR pressed the back key.
+     */
     public MaterialDialog setCanceledOnTouchOutside(boolean cancel) {
         this.mCancel = cancel;
         if (mBuilder != null) {
@@ -249,7 +257,7 @@ public class MaterialDialog {
             mAlertDialogWindow = mAlertDialog.getWindow();
             View contentView = LayoutInflater.from(mContext)
                                              .inflate(
-                                                     R.layout.layout_materialdialog,
+                                                     R.layout.layout_material_dialog,
                                                      null);
             contentView.setFocusable(true);
             contentView.setFocusableInTouchMode(true);
@@ -295,8 +303,7 @@ public class MaterialDialog {
                 mPositiveButton.setText(pId);
                 mPositiveButton.setOnClickListener(pListener);
                 if (isLollipop()) {
-                    mPositiveButton.setBackgroundResource(
-                            android.R.color.transparent);
+                    mPositiveButton.setElevation(0);
                 }
             }
             if (nId != -1) {
@@ -304,8 +311,7 @@ public class MaterialDialog {
                 mNegativeButton.setText(nId);
                 mNegativeButton.setOnClickListener(nListener);
                 if (isLollipop()) {
-                    mNegativeButton.setBackgroundResource(
-                            android.R.color.transparent);
+                    mNegativeButton.setElevation(0);
                 }
             }
             if (!isNullOrEmpty(pText)) {
@@ -313,8 +319,7 @@ public class MaterialDialog {
                 mPositiveButton.setText(pText);
                 mPositiveButton.setOnClickListener(pListener);
                 if (isLollipop()) {
-                    mPositiveButton.setBackgroundResource(
-                            android.R.color.transparent);
+                    mPositiveButton.setElevation(0);
                 }
             }
 
@@ -323,8 +328,7 @@ public class MaterialDialog {
                 mNegativeButton.setText(nText);
                 mNegativeButton.setOnClickListener(nListener);
                 if (isLollipop()) {
-                    mNegativeButton.setBackgroundResource(
-                            android.R.color.transparent);
+                    mNegativeButton.setElevation(0);
                 }
             }
             if (isNullOrEmpty(pText) && pId == -1) {
@@ -348,8 +352,7 @@ public class MaterialDialog {
 
             if (mMessageContentView != null) {
                 this.setContentView(mMessageContentView);
-            }
-            else if (mMessageContentViewResId != 0) {
+            } else if (mMessageContentViewResId != 0) {
                 this.setContentView(mMessageContentViewResId);
             }
             mAlertDialog.setCanceledOnTouchOutside(mCancel);
@@ -428,8 +431,7 @@ public class MaterialDialog {
                 params.setMargins(20, 0, 10, dip2px(BUTTON_BOTTOM));
                 button.setLayoutParams(params);
                 mButtonLayout.addView(button, 1);
-            }
-            else {
+            } else {
                 button.setLayoutParams(params);
                 mButtonLayout.addView(button);
             }
@@ -560,10 +562,7 @@ public class MaterialDialog {
     }
 
 
-    /**
-     * 动态测量list view item的高度
-     */
-    public static void setListViewHeightBasedOnChildren(ListView listView) {
+    private void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) {
             // pre-condition
