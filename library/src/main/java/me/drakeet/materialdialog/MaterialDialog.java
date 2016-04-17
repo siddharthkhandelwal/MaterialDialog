@@ -247,38 +247,30 @@ public class MaterialDialog {
             mAlertDialog.show();
 
             mAlertDialog.getWindow()
-                        .clearFlags(
-                                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
-                                        WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+                        .clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
+                                WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
             mAlertDialog.getWindow()
-                        .setSoftInputMode(
-                                WindowManager.LayoutParams.SOFT_INPUT_MASK_STATE);
+                        .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_MASK_STATE);
 
             mAlertDialogWindow = mAlertDialog.getWindow();
             View contentView = LayoutInflater.from(mContext)
-                                             .inflate(
-                                                     R.layout.layout_material_dialog,
-                                                     null);
+                                             .inflate(R.layout.layout_material_dialog, null);
             contentView.setFocusable(true);
             contentView.setFocusableInTouchMode(true);
 
-            mAlertDialogWindow.setBackgroundDrawableResource(
-                    R.drawable.material_dialog_window);
+            mAlertDialogWindow.setBackgroundDrawableResource(R.drawable.material_dialog_window);
 
             mAlertDialogWindow.setContentView(contentView);
 
             mTitleView = (TextView) mAlertDialogWindow.findViewById(R.id.title);
-            mMessageView = (TextView) mAlertDialogWindow.findViewById(
-                    R.id.message);
-            mButtonLayout = (LinearLayout) mAlertDialogWindow.findViewById(
-                    R.id.buttonLayout);
+            mMessageView = (TextView) mAlertDialogWindow.findViewById(R.id.message);
+            mButtonLayout = (LinearLayout) mAlertDialogWindow.findViewById(R.id.buttonLayout);
             mPositiveButton = (Button) mButtonLayout.findViewById(R.id.btn_p);
             mNegativeButton = (Button) mButtonLayout.findViewById(R.id.btn_n);
             mMessageContentRoot = (ViewGroup) mAlertDialogWindow.findViewById(
                     R.id.message_content_root);
             if (mView != null) {
-                LinearLayout linearLayout
-                        = (LinearLayout) mAlertDialogWindow.findViewById(
+                LinearLayout linearLayout = (LinearLayout) mAlertDialogWindow.findViewById(
                         R.id.contentView);
                 linearLayout.removeAllViews();
                 linearLayout.addView(mView);
@@ -338,14 +330,12 @@ public class MaterialDialog {
                 mNegativeButton.setVisibility(View.GONE);
             }
             if (mBackgroundResId != -1) {
-                LinearLayout linearLayout
-                        = (LinearLayout) mAlertDialogWindow.findViewById(
+                LinearLayout linearLayout = (LinearLayout) mAlertDialogWindow.findViewById(
                         R.id.material_background);
                 linearLayout.setBackgroundResource(mBackgroundResId);
             }
             if (mBackgroundDrawable != null) {
-                LinearLayout linearLayout
-                        = (LinearLayout) mAlertDialogWindow.findViewById(
+                LinearLayout linearLayout = (LinearLayout) mAlertDialogWindow.findViewById(
                         R.id.material_background);
                 linearLayout.setBackground(mBackgroundDrawable);
             }
@@ -395,8 +385,7 @@ public class MaterialDialog {
         public void setPositiveButton(String text, final View.OnClickListener listener) {
             Button button = new Button(mContext);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
+                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             button.setLayoutParams(params);
             button.setBackgroundResource(R.drawable.material_card);
             button.setTextColor(Color.argb(255, 35, 159, 242));
@@ -417,8 +406,7 @@ public class MaterialDialog {
         public void setNegativeButton(String text, final View.OnClickListener listener) {
             Button button = new Button(mContext);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
+                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             button.setLayoutParams(params);
             button.setBackgroundResource(R.drawable.material_card);
             button.setText(text);
@@ -439,12 +427,10 @@ public class MaterialDialog {
 
 
         public void setView(View view) {
-            LinearLayout l = (LinearLayout) mAlertDialogWindow.findViewById(
-                    R.id.contentView);
+            LinearLayout l = (LinearLayout) mAlertDialogWindow.findViewById(R.id.contentView);
             l.removeAllViews();
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT);
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             view.setLayoutParams(layoutParams);
 
             view.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -452,8 +438,7 @@ public class MaterialDialog {
                     mAlertDialogWindow.setSoftInputMode(
                             WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                     // show imm
-                    InputMethodManager imm
-                            = (InputMethodManager) mContext.getSystemService(
+                    InputMethodManager imm = (InputMethodManager) mContext.getSystemService(
                             Context.INPUT_METHOD_SERVICE);
                     imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,
                             InputMethodManager.HIDE_IMPLICIT_ONLY);
@@ -475,11 +460,9 @@ public class MaterialDialog {
                     }
                 }
                 for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                    if (viewGroup.getChildAt(
-                            i) instanceof AutoCompleteTextView) {
-                        AutoCompleteTextView autoCompleteTextView
-                                = (AutoCompleteTextView) viewGroup.getChildAt(
-                                i);
+                    if (viewGroup.getChildAt(i) instanceof AutoCompleteTextView) {
+                        AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) viewGroup
+                                .getChildAt(i);
                         autoCompleteTextView.setFocusable(true);
                         autoCompleteTextView.requestFocus();
                         autoCompleteTextView.setFocusableInTouchMode(true);
@@ -491,24 +474,19 @@ public class MaterialDialog {
 
         public void setContentView(View contentView) {
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT);
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             contentView.setLayoutParams(layoutParams);
             if (contentView instanceof ListView) {
                 setListViewHeightBasedOnChildren((ListView) contentView);
             }
-            LinearLayout linearLayout
-                    = (LinearLayout) mAlertDialogWindow.findViewById(
+            LinearLayout linearLayout = (LinearLayout) mAlertDialogWindow.findViewById(
                     R.id.message_content_view);
             if (linearLayout != null) {
                 linearLayout.removeAllViews();
                 linearLayout.addView(contentView);
             }
-            for (int i = 0;
-                 i < (linearLayout != null ? linearLayout.getChildCount() : 0);
-                 i++) {
-                if (linearLayout.getChildAt(
-                        i) instanceof AutoCompleteTextView) {
+            for (int i = 0; i < (linearLayout != null ? linearLayout.getChildCount() : 0); i++) {
+                if (linearLayout.getChildAt(i) instanceof AutoCompleteTextView) {
                     AutoCompleteTextView autoCompleteTextView
                             = (AutoCompleteTextView) linearLayout.getChildAt(i);
                     autoCompleteTextView.setFocusable(true);
@@ -535,16 +513,14 @@ public class MaterialDialog {
 
 
         public void setBackground(Drawable drawable) {
-            LinearLayout linearLayout
-                    = (LinearLayout) mAlertDialogWindow.findViewById(
+            LinearLayout linearLayout = (LinearLayout) mAlertDialogWindow.findViewById(
                     R.id.material_background);
             linearLayout.setBackground(drawable);
         }
 
 
         public void setBackgroundResource(int resId) {
-            LinearLayout linearLayout
-                    = (LinearLayout) mAlertDialogWindow.findViewById(
+            LinearLayout linearLayout = (LinearLayout) mAlertDialogWindow.findViewById(
                     R.id.material_background);
             linearLayout.setBackgroundResource(resId);
         }
@@ -577,8 +553,7 @@ public class MaterialDialog {
         }
 
         ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight +
-                (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
         listView.setLayoutParams(params);
     }
 }
