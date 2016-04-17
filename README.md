@@ -1,4 +1,6 @@
-# Material Dialog v1.3.0
+# Material Dialog v1.3.1
+
+![maven-central](https://img.shields.io/maven-central/v/me.drakeet.materialdialog/library.svg) 
 
 This is an Android library, I call it MaterialDialog. It's very easy to use. 
 Just `new` it & call `show()` method, then the beautiful AlertDialog will show automatically. It is artistic, conforms to Google Material Design. I hope that you will like it, and enjoys it. ^ ^
