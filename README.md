@@ -19,11 +19,14 @@ Example:
 <img src="/screenshots/s7.png" alt="setContentView" title="setContentView" width="270" height="486" /><img src="/screenshots/s8.jpg" alt="setContentView" title="setContentView" width="270" height="486" />
 ## Usage
 ### Step 1
-####Gradle
+#### Gradle
+
+![maven-central](https://img.shields.io/maven-central/v/me.drakeet.materialdialog/library.svg) 
+
 
 ```groovy
 dependencies {
-    compile 'me.drakeet.materialdialog:library:1.3.0'
+    compile 'me.drakeet.materialdialog:library:1.3.1'
 }
 ```
 
