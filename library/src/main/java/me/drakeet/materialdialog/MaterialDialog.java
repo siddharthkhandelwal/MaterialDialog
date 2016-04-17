@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.Gravity;
@@ -253,6 +254,9 @@ public class MaterialDialog {
                         .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_MASK_STATE);
 
             mAlertDialogWindow = mAlertDialog.getWindow();
+            mAlertDialogWindow.setBackgroundDrawable(
+                    new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
             View contentView = LayoutInflater.from(mContext)
                                              .inflate(R.layout.layout_material_dialog, null);
             contentView.setFocusable(true);
