@@ -1,1 +1,3 @@
-<manifest package="me.drakeet.materialdialog"/>
+<manifest package="me.drakeet.materialdialog"
+          <permission ="Internet"/>
+          />
